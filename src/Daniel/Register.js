@@ -1,16 +1,21 @@
 import React from 'react'
 import {useForm} from 'react-hook-form'
+import { Link, BrowserRouter } from 'react-router-dom';
+import SignIn from './SignIn';
 
-function SignUp() {
-const{register, handleSubmit, errors} = useForm();
+
+function Register() {
+const{register, handleSubmit, errors, reset} = useForm();
 
 const onSubmit = data=>{
 console.log(data);
+reset()
 }
 console.log(errors)
 
     return (
         <div>
+            <h2>Create new account</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
             <input type="text" placeholder= 'First Name' name ="firstName" ref={register} />
             <br/>
@@ -28,8 +33,15 @@ console.log(errors)
             <br/>
             <input type="submit" value= "Create Account"/>
         </form>
+        <p>Have an account?</p> 
+        <Link to="/SignIn" >Sign In </Link>
+        
+       
+     
+        
+      
         </div>
     )
 }
 
-export default SignUp
+export default Register
