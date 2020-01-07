@@ -22,10 +22,15 @@ import {
   UPDATE_FOOD_FAILURE,
   DELETE_FOOD_START,
   DELETE_FOOD_SUCCESS,
-  DELETE_FOOD_FAILURE
+  DELETE_FOOD_FAILURE,
+  FETCH_FARMS_START,
+  FETCH_FARMS_SUCCESS,
+  FETCH_FARMS_FAILURE
 } from "../actions/";
 
 const initialState = {
+  token: null,
+  username: null,
   farms: [],
   users: [],
   farmers: [],
@@ -56,8 +61,8 @@ const reducer = (state = initialState, action) => {
       localStorage.setItem("token", action.payload.token);
       return {
         ...state,
+        token: action.payload,
         isFetching: false,
-        farms: action.payload,
         error: ""
       };
     case FLOGIN_FAILURE:

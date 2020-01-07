@@ -1,15 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-
-
 const Routes = () => {
   return (
     <BrowserRouter>
-
-        <Route path="/SignIn" exact component={SignIn} />
-        <Route path="/Register" exact component={Register}/>
-   
+      <Route path="/uregister" exact component={Uregister} />
+      <Route path="/ulogin" exact component={uLogin} />
     </BrowserRouter>
   );
 };

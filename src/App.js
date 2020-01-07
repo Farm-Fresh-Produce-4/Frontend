@@ -1,16 +1,20 @@
 import React from "react";
 import "./App.css";
-import Register from "./daniel/Register";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Login from "./daniel/Login";
+import Ulogin from "./daniel/Ulogin";
+import Uregister from "./daniel/Uregister";
+import Fregister from "./kai/Fregister";
+import Flogin from "./kai/Flogin";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route path="/Register" exact component={Register} />
-          <Route path="/Login" exact component={Login} />
+          <Route path="/uregister" exact component={Uregister} />
+          <Route path="/ulogin" exact component={Ulogin} />
+          <Route path="/fregister" exact component={Fregister} />
+          <Route path="/flogin" exact component={Flogin} />
         </Switch>
       </BrowserRouter>
     </div>
