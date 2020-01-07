@@ -1,9 +1,11 @@
 import React from "react";
 import "./App.css";
-import Register from "./daniel/Register";
+import Register from "./Daniel/Register";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Login from "./daniel/Login";
+import Login from "./Daniel/Login";
 import { ProductData } from './Daniel/ProductData';
+import { Container } from "reactstrap";
+import { Row, Col } from "reactstrap";
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         </Switch>
       </BrowserRouter>
       <ProductData/>
+  
+    
     </div>
   );
 }
