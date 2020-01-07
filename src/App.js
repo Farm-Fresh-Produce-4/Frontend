@@ -5,10 +5,12 @@ import Ulogin from "./daniel/Ulogin";
 import Uregister from "./daniel/Uregister";
 import Fregister from "./kai/Fregister";
 import Flogin from "./kai/Flogin";
+import NavBar from "./Daniel/NavBar";
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <BrowserRouter>
         <Switch>
           <Route path="/uregister" exact component={Uregister} />

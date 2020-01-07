@@ -74,6 +74,37 @@ const reducer = (state = initialState, action) => {
         isFetching: false,
         error: action.payload
       };
+
+    //FARMER
+    case FETCH_FOOD_START:
+    case ADD_FOOD_START:
+    case UPDATE_FOOD_START:
+    case DELETE_FOOD_START:
+      return {
+        ...state,
+        isFetching: true,
+        error: ""
+      };
+    case FETCH_FOOD_SUCCESS:
+    case ADD_FOOD_SUCCESS:
+    case UPDATE_FOOD_SUCCESS:
+    case DELETE_FOOD_SUCCESS:
+      // localStorage.setItem("token", action.payload.token);
+      return {
+        ...state,
+        isFetching: false,
+        farms: action.payload,
+        error: ""
+      };
+    case FETCH_FOOD_FAILURE:
+    case ADD_FOOD_FAILURE:
+    case UPDATE_FOOD_FAILURE:
+    case DELETE_FOOD_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload
+      };
     default:
       return state;
   }
