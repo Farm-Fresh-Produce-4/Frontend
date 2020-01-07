@@ -1,4 +1,5 @@
 import { AxiosWithAuth } from "../utils/axiosWithAuth";
+import Axios from "axios";
 
 //LOGIN & REGISTER ACTIONS
 
@@ -14,8 +15,8 @@ export const fLoginRequest = userData => dispatch => {
   dispatch({ type: FLOGIN_REQUEST, payload: userData });
 
   AxiosWithAuth()
-    .post("/auth/farmer/login")
-    .then(res => dispatch({ type: FLOGIN_SUCCESS, payload: res.userData }))
+    .post("/auth/farmer/login", userData)
+    .then(res => dispatch({ type: FLOGIN_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: FLOGIN_FAILURE, payload: err }));
 };
 
@@ -39,8 +40,8 @@ export const uLoginRequest = userData => dispatch => {
   dispatch({ type: ULOGIN_REQUEST, payload: userData });
 
   AxiosWithAuth()
-    .post("/auth/users/login")
-    .then(res => dispatch({ type: ULOGIN_SUCCESS, payload: res.userData }))
+    .post("/auth/users/login", userData)
+    .then(res => dispatch({ type: ULOGIN_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: ULOGIN_FAILURE, payload: err }));
 };
 
@@ -104,3 +105,15 @@ export const deleteFood = id => dispatch => {
 };
 
 //USER SHOPPING ACTIONS
+export const FETCH_FARMS_START = "FETCH_FARMS_START";
+export const FETCH_FARMS_SUCCESS = "FETCH_FARMS_SUCCESS";
+export const FETCH_FARMS_FAILURE = "FETCH_FARMS_FAILURE";
+
+export const fetchFarms = () => dispatch => {
+  dispatch({ type: FETCH_FARMS_START });
+
+  AxiosWithAuth()
+    .get("/farms")
+    .then(res => dispatch({ type: FETCH_FARMS_SUCCESS, payload: res.data }))
+    .catch(err => dispatch({ type: FETCH_FARMS_FAILURE, payload: err }));
+};

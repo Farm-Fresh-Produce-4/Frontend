@@ -4,24 +4,25 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { uLoginRequest } from "../actions";
 
-const Login = props => {
-  const [formData, setFormData] = useState({
+const Ulogin = props => {
+  const [user, setUser] = useState({
     username: "",
     password: ""
   });
+
   const { register, errors, reset } = useForm();
-
   console.log(errors);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    props.uLoginRequest(formData);
-    reset();
+  const handleSubmit = event => {
+    event.preventDefault();
+    props.uLoginRequest(user);
+    props.history.push("/uhome");
   };
-  console.log(errors);
 
-  const handleChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChanges = event => {
+    event.preventDefault();
+    setUser({ ...user, [event.target.name]: event.target.value });
+    reset();
   };
 
   return (
@@ -31,33 +32,31 @@ const Login = props => {
         <input
           type="text"
           placeholder="Username"
-          name="Username"
+          name="username"
           ref={register({ required: true })}
-          onChange={handleChange}
+          value={user.username}
+          onChange={handleChanges}
         />
         <br />
         <input
           type="password"
           placeholder="Password"
-          name="Password"
+          name="password"
           ref={register({ required: true })}
-          onChange={handleChange}
+          value={user.password}
+          onChange={handleChanges}
         />
 
         <input type="submit" value="Sign In" />
       </form>
       <p>Don't have an account?</p>
-      <Link to="/Register">Create One </Link>
+      <Link to="/uregister">Create One </Link>
     </div>
   );
 };
 
 const mapStateToProps = state => {
-  return {
-    token: state.token,
-    username: state.username,
-    isFetching: state.isFetching
-  };
+  return state;
 };
 
-export default connect(mapStateToProps, { uLoginRequest })(Login);
+export default connect(mapStateToProps, { uLoginRequest })(Ulogin);
