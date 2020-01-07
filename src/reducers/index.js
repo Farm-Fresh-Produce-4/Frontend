@@ -23,7 +23,7 @@ import {
   DELETE_FOOD_START,
   DELETE_FOOD_SUCCESS,
   DELETE_FOOD_FAILURE
-} from "../actions/";
+} from '../actions/';
 
 const initialState = {
   farms: [],
@@ -35,7 +35,7 @@ const initialState = {
   isUpdating: false,
   isFetching: false,
   token: null,
-  error: ""
+  error: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -47,23 +47,54 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        error: ""
+        error: ''
       };
     case FLOGIN_SUCCESS:
     case ULOGIN_SUCCESS:
     case FREGISTER_SUCCESS:
     case UREGISTER_SUCCESS:
-      localStorage.setItem("token", action.payload.token);
+      localStorage.setItem('token', action.payload.token);
       return {
         ...state,
         isFetching: false,
         farms: action.payload,
-        error: ""
+        error: ''
       };
     case FLOGIN_FAILURE:
     case ULOGIN_FAILURE:
     case FREGISTER_FAILURE:
     case UREGISTER_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload
+      };
+
+    //FARMER
+    case FETCH_FOOD_START:
+    case ADD_FOOD_START:
+    case UPDATE_FOOD_START:
+    case DELETE_FOOD_START:
+      return {
+        ...state,
+        isFetching: true,
+        error: ''
+      };
+    case FETCH_FOOD_SUCCESS:
+    case ADD_FOOD_SUCCESS:
+    case UPDATE_FOOD_SUCCESS:
+    case DELETE_FOOD_SUCCESS:
+      // localStorage.setItem("token", action.payload.token);
+      return {
+        ...state,
+        isFetching: false,
+        farms: action.payload,
+        error: ''
+      };
+    case FETCH_FOOD_FAILURE:
+    case ADD_FOOD_FAILURE:
+    case UPDATE_FOOD_FAILURE:
+    case DELETE_FOOD_FAILURE:
       return {
         ...state,
         isFetching: false,
