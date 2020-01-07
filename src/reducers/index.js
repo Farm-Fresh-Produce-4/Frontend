@@ -25,7 +25,7 @@ import {
   DELETE_FOOD_FAILURE
 } from "../actions/";
 
-initialState = {
+const initialState = {
   farms: [],
   users: [],
   farmers: [],
