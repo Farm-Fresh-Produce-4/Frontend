@@ -1,4 +1,4 @@
-import AxiosWithAuth from "../utils/axiosWithAuth";
+import { AxiosWithAuth } from "../utils/axiosWithAuth";
 
 //LOGIN & REGISTER ACTIONS
 
@@ -36,10 +36,10 @@ export const UREGISTER_SUCCESS = "UREGISTER_SUCCESS";
 export const UREGISTER_FAILURE = "UREGISTER_FAILURE";
 
 export const uLoginRequest = userData => dispatch => {
-  dispatch({ type: uLOGIN_REQUEST, payload: userData });
+  dispatch({ type: ULOGIN_REQUEST, payload: userData });
 
   AxiosWithAuth()
-    .post("/auth/user/login")
+    .post("/auth/users/login")
     .then(res => dispatch({ type: ULOGIN_SUCCESS, payload: res.userData }))
     .catch(err => dispatch({ type: ULOGIN_FAILURE, payload: err }));
 };
@@ -47,7 +47,7 @@ export const uLoginRequest = userData => dispatch => {
 export const uRegisterRequest = userData => dispatch => {
   dispatch({ type: FREGISTER_REQUEST, payload: userData });
   AxiosWithAuth()
-    .post("/auth/user/register", userData)
+    .post("/auth/users/register", userData)
     .then(res => dispatch({ type: UREGISTER_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: UREGISTER_FAILURE, payload: err }));
 };
@@ -71,7 +71,7 @@ export const DELETE_FOOD_FAILURE = "DELETE_FOOD_FAILURE";
 
 //GET
 export const fetchFood = () => dispatch => {
-  dipatch({ type: FETCH_FOOD_START });
+  dispatch({ type: FETCH_FOOD_START });
 
   AxiosWithAuth()
     .get("/placeholder")
@@ -88,7 +88,7 @@ export const addFood = newFood => dispatch => {
 };
 
 //PUT
-export const addFood = (updatedFood, id) => dispatch => {
+export const updateFood = (updatedFood, id) => dispatch => {
   dispatch({ type: UPDATE_FOOD_START });
   AxiosWithAuth(`/placeholder/${id}`, updatedFood)
     .post(res => dispatch({ type: UPDATE_FOOD_SUCCESS, payload: res.data }))
@@ -96,7 +96,7 @@ export const addFood = (updatedFood, id) => dispatch => {
 };
 
 //DELETE
-export const addFood = id => dispatch => {
+export const deleteFood = id => dispatch => {
   dispatch({ type: DELETE_FOOD_START });
   AxiosWithAuth(`/placeholder/${id}`)
     .post(res => dispatch({ type: DELETE_FOOD_SUCCESS, payload: res.id }))
