@@ -5,7 +5,7 @@ import Ulogin from "./daniel/Ulogin";
 import Uregister from "./daniel/Uregister";
 import Fregister from "./kai/Fregister";
 import Flogin from "./kai/Flogin";
-import NavBar from "./Daniel/NavBar";
+import NavBar from "./daniel/NavBar";
 
 function App() {
   return (
