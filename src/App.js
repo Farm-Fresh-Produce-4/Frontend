@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Ulogin from "./daniel/Ulogin";
-import Uregister from "./daniel/Uregister";
+import Ulogin from "./Daniel/Ulogin";
+import Uregister from "./Daniel/Uregister";
 import Fregister from "./kai/Fregister";
 import Flogin from "./kai/Flogin";
 import NavBar from "./Daniel/NavBar";
+import { FarmList } from "./kai/FarmList";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/flogin" exact component={Flogin} />
         </Switch>
       </BrowserRouter>
+      <FarmList/>
     </div>
   );
 }
