@@ -21,6 +21,7 @@ function App() {
           <Route path="/farmerprofile" component={FarmerProfile} />
         </Switch>
       </BrowserRouter>
+  
     </div>
   );
 }
