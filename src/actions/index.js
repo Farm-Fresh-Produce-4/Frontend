@@ -83,7 +83,7 @@ export const fetchFood = () => dispatch => {
 //POST
 export const addFood = newFood => dispatch => {
   dispatch({ type: ADD_FOOD_START });
-  AxiosWithAuth('/placeholder')
+  AxiosWithAuth('/placeholder', newFood)
     .post(res => dispatch({ type: ADD_FOOD_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: ADD_FOOD_FAILURE, payload: err }));
 };
@@ -111,7 +111,7 @@ export const ADD_FARMS_FAILURE = 'ADD_FARM_FAILURE';
 
 export const addFarm = newFarm => dispatch => {
   dispatch({ type: ADD_FARMS_START });
-  AxiosWithAuth('/placeholder')
+  AxiosWithAuth('/placeholder', newFarm)
     .post(res => dispatch({ type: ADD_FARMS_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: ADD_FARMS_FAILURE, payload: err }));
 };
