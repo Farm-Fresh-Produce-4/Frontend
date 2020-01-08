@@ -6,6 +6,7 @@ import Uregister from "./daniel/Uregister";
 import Fregister from "./kai/Fregister";
 import Flogin from "./kai/Flogin";
 import NavBar from "./daniel/NavBar";
+import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
