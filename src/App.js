@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Ulogin from './Daniel/Ulogin';
-import Uregister from './Daniel/Uregister';
+import Ulogin from './daniel/Ulogin';
+import Uregister from './daniel/Uregister';
 import Fregister from './kai/Fregister';
 import Flogin from './kai/Flogin';
-import NavBar from './Daniel/NavBar';
+import NavBar from './daniel/NavBar';
 import FarmerProfile from './components/Farmers/FarmerProfile';
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
           <Route path='/farmerprofile' component={FarmerProfile} />
         </Switch>
       </BrowserRouter>
+  
     </div>
   );
 }
