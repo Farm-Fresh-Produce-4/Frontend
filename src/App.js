@@ -7,6 +7,7 @@ import Fregister from "./kai/Fregister";
 import Flogin from "./kai/Flogin";
 import NavBar from "./Daniel/NavBar";
 import PrivateRoute from "./utils/PrivateRoute";
+import FarmerProfile from "./components/Farmers/FarmerProfile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/ulogin" exact component={Ulogin} />
           <Route path="/fregister" exact component={Fregister} />
           <Route path="/flogin" exact component={Flogin} />
+          <Route path="/farmerprofile" component={FarmerProfile} />
         </Switch>
       </BrowserRouter>
     </div>
