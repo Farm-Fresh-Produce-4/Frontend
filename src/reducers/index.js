@@ -25,8 +25,11 @@ import {
   DELETE_FOOD_FAILURE,
   FETCH_FARMS_START,
   FETCH_FARMS_SUCCESS,
-  FETCH_FARMS_FAILURE
-} from "../actions/";
+  FETCH_FARMS_FAILURE,
+  ADD_FARMS_START,
+  ADD_FARMS_SUCCESS,
+  ADD_FARMS_FAILURE
+} from '../actions/';
 
 const initialState = {
   token: null,
@@ -40,7 +43,7 @@ const initialState = {
   isUpdating: false,
   isFetching: false,
   token: null,
-  error: ""
+  error: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -52,18 +55,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        error: ""
+        error: ''
       };
     case FLOGIN_SUCCESS:
     case ULOGIN_SUCCESS:
     case FREGISTER_SUCCESS:
     case UREGISTER_SUCCESS:
-      localStorage.setItem("token", action.payload.token);
+      localStorage.setItem('token', action.payload.token);
       return {
         ...state,
         token: action.payload,
         isFetching: false,
-        error: ""
+        error: ''
       };
     case FLOGIN_FAILURE:
     case ULOGIN_FAILURE:
@@ -83,7 +86,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        error: ""
+        error: ''
       };
     case FETCH_FOOD_SUCCESS:
     case ADD_FOOD_SUCCESS:
@@ -94,7 +97,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         farms: action.payload,
-        error: ""
+        error: ''
       };
     case FETCH_FOOD_FAILURE:
     case ADD_FOOD_FAILURE:
@@ -105,6 +108,28 @@ const reducer = (state = initialState, action) => {
         isFetching: false,
         error: action.payload
       };
+
+    //FARM
+    case ADD_FARMS_START:
+      return {
+        ...state,
+        isFetching: true,
+        error: ''
+      };
+    case ADD_FARMS_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        farms: action.payload,
+        error: ''
+      };
+    case ADD_FARMS_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload
+      };
+
     default:
       return state;
   }
