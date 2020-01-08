@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
+  Button
+
 } from 'reactstrap';
 
 const NavBar = (props) => {
@@ -36,11 +31,11 @@ const NavBar = (props) => {
               <NavLink style={{color: 'white'}}   href="/Login">Sign In</NavLink>
             </NavItem>
           </Nav>
-          <button style={{backgroundColor: '#7FAECC' , borderRadius: "10px", border: "none", color:'white'}}>Click Here To Sell </button>
+          <Button style={{backgroundColor: '#7FAECC' }}>Click Here To Sell</Button>{' '}
       </Navbar>
     
     </div>
   );
 }
-
+{/*<button style={{backgroundColor: '#7FAECC' , borderRadius: "10px", border: "none", color:'white'}}>Click Here To Sell </button>*/}
 export default NavBar;

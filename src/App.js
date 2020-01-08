@@ -9,6 +9,7 @@ import NavBar from "./Daniel/NavBar";
 import PrivateRoute from "./utils/PrivateRoute";
 import FarmerProfile from "./components/Farmers/FarmerProfile";
 
+
 function App() {
   return (
     <div className="App">
@@ -21,7 +22,7 @@ function App() {
           <Route path="/farmerprofile" component={FarmerProfile} />
         </Switch>
       </BrowserRouter>
-  
+
     </div>
   );
 }
