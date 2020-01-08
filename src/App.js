@@ -19,8 +19,8 @@ function App() {
           <Route path='/ulogin' exact component={Ulogin} />
           <Route path='/fregister' exact component={Fregister} />
           <Route path='/flogin' exact component={Flogin} />
-          <Route path='/farmerprofile' component={FarmerProfile} />
-          <Route path='/farmereditinventory' component={FarmerEditInventory} />
+          <Route path='/farmer' component={FarmerProfile} />
+          <Route path='/farmer' component={FarmerEditInventory} />
         </Switch>
       </BrowserRouter>
     </div>

@@ -21,13 +21,13 @@ const FarmerEditInventory = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.updateFood();
-    props.history.push('/inventory');
+    props.history.push('/produce');
   };
 
   const deleteItem = e => {
     e.preventDefault();
     props.deleteFood();
-    props.history.push('/inventory');
+    props.history.push('/produce');
   };
 
   return (

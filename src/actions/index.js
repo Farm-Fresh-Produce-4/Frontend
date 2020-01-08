@@ -1,5 +1,4 @@
 import { AxiosWithAuth } from '../utils/axiosWithAuth';
-import Axios from 'axios';
 
 //LOGIN & REGISTER ACTIONS
 
@@ -75,7 +74,7 @@ export const fetchFood = () => dispatch => {
   dispatch({ type: FETCH_FOOD_START });
 
   AxiosWithAuth()
-    .get('/placeholder')
+    .get('/produce/:farmID')
     .then(res => dispatch({ type: FETCH_FOOD_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: FETCH_FOOD_FAILURE, payload: err }));
 };

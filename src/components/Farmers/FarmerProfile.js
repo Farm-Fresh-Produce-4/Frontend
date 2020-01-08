@@ -24,6 +24,7 @@ const FarmerProfile = props => {
 
   return (
     <div>
+      <h1>Add Your Farm Information</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <input
@@ -34,6 +35,7 @@ const FarmerProfile = props => {
             placeholder='Farm Name'
             onChange={handleChange}
           />
+          <b />
           <input
             label='address'
             name='address'
@@ -42,6 +44,7 @@ const FarmerProfile = props => {
             placeholder='Enter Farm Address'
             onChange={handleChange}
           />
+          <b />
           <input
             label='year founded'
             name='year_founded'
@@ -50,6 +53,7 @@ const FarmerProfile = props => {
             placeholder='Enter Year Founded'
             onChange={handleChange}
           />
+          <b />
           <input
             label='bio'
             name='bio'
@@ -63,7 +67,7 @@ const FarmerProfile = props => {
 
       <h2>Already Have A Farm Listed</h2>
       <h3>Click Here To Add/Edit Inventory</h3>
-      <Link to='/farmerinventory'>
+      <Link to='/farmer'>
         <button>Edit Inventory</button>
       </Link>
     </div>
