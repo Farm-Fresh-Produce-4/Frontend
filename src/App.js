@@ -1,17 +1,16 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Ulogin from "./daniel/Ulogin";
-import Uregister from "./daniel/Uregister";
+import Ulogin from "./Daniel/Ulogin";
+import Uregister from "./Daniel/Uregister";
 import Fregister from "./kai/Fregister";
 import Flogin from "./kai/Flogin";
-import NavBar from "./daniel/NavBar";
+import NavBar from "./Daniel/NavBar";
 import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <BrowserRouter>
         <Switch>
           <Route path="/uregister" exact component={Uregister} />
