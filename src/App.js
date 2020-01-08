@@ -7,17 +7,19 @@ import Fregister from "./kai/Fregister";
 import Flogin from "./kai/Flogin";
 import NavBar from "./daniel/NavBar";
 import PrivateRoute from "./utils/PrivateRoute";
+import FarmerProfile from './components/Farmers/FarmerProfile';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <NavBar />
       <BrowserRouter>
         <Switch>
-          <Route path="/uregister" exact component={Uregister} />
-          <Route path="/ulogin" exact component={Ulogin} />
-          <Route path="/fregister" exact component={Fregister} />
-          <Route path="/flogin" exact component={Flogin} />
+          <Route path='/uregister' exact component={Uregister} />
+          <Route path='/ulogin' exact component={Ulogin} />
+          <Route path='/fregister' exact component={Fregister} />
+          <Route path='/flogin' exact component={Flogin} />
+          <Route path='/farmerprofile' component={FarmerProfile} />
         </Switch>
       </BrowserRouter>
     </div>
