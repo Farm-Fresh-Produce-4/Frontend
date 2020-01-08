@@ -40,4 +40,4 @@ const FNavBar = (props) => {
   );
 }
 
-export default NavBar;
+export default FNavBar;
