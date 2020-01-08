@@ -26,31 +26,65 @@ const Ulogin = props => {
   };
 
   return (
-    <div>
-      <h2>Sign in to account</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          ref={register({ required: true })}
-          value={user.username}
-          onChange={handleChanges}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          ref={register({ required: true })}
-          value={user.password}
-          onChange={handleChanges}
-        />
+    <div className="limiter">
+      <div className="container-login100">
+        <div className="wrap-login100">
+          <form className="login100-form validate-form" onSubmit={handleSubmit}>
+            <span className="login100-form-title p-b-34">Customer Login</span>
 
-        <input type="submit" value="Sign In" />
-      </form>
-      <p>Don't have an account?</p>
-      <Link to="/uregister">Create One </Link>
+            <div
+              className="wrap-input100 rs1-wrap-input100 validate-input m-b-20"
+              data-validate="Type user name"
+            >
+              <input
+                type="text"
+                placeholder="Username"
+                name="username"
+                className="input100"
+                ref={register({ required: true })}
+                value={user.username}
+                onChange={handleChanges}
+              />
+              <span className="focus-input100"></span>
+            </div>
+            <div
+              className="wrap-input100 rs2-wrap-input100 validate-input m-b-20"
+              data-validate="Type password"
+            >
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                className="input100"
+                ref={register({ required: true })}
+                value={user.password}
+                onChange={handleChanges}
+              />
+              <span className="focus-input100"></span>
+            </div>
+
+            <div className="container-login100-form-btn">
+              <button className="login100-form-btn" type="submit">
+                Sign in
+              </button>
+            </div>
+
+            <div className="w-full text-center p-t-27 p-b-239">
+              <span className="txt1"></span>
+
+              <a href="#" className="txt2"></a>
+            </div>
+
+            <div className="w-full text-center">
+              <Link to="/uregister" className="txt3">
+                Sign Up
+              </Link>
+            </div>
+          </form>
+
+          <img src={require("../img/produce.jpg")} className="login100-more" />
+        </div>
+      </div>
     </div>
   );
 };
