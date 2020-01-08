@@ -6,7 +6,6 @@ import Uregister from "./Daniel/Uregister";
 import Fregister from "./kai/Fregister";
 import Flogin from "./kai/Flogin";
 import NavBar from "./Daniel/NavBar";
-import { FarmList } from "./kai/FarmList";
 
 function App() {
   return (
@@ -20,7 +19,7 @@ function App() {
           <Route path="/flogin" exact component={Flogin} />
         </Switch>
       </BrowserRouter>
-      <FarmList/>
+  
     </div>
   );
 }
