@@ -1,11 +1,15 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Ulogin from "./Daniel/Ulogin";
-import Uregister from "./Daniel/Uregister";
+import Ulogin from "./daniel/Ulogin";
+import Uregister from "./daniel/Uregister";
 import Fregister from "./kai/Fregister";
 import Flogin from "./kai/Flogin";
-import NavBar from "./Daniel/NavBar";
+import NavBar from "./daniel/NavBar";
+import { Container } from "reactstrap";
+import { ProductData } from "./daniel/ProductData";
+
+
 
 function App() {
   return (
@@ -19,7 +23,7 @@ function App() {
           <Route path="/flogin" exact component={Flogin} />
         </Switch>
       </BrowserRouter>
-  
+
     </div>
   );
 }
