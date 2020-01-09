@@ -12,11 +12,11 @@ import FarmerProfile from "./components/Farmers/FarmerProfile";
 import { FarmPage } from "./daniel/FarmPage";
 import { ProductPage } from "./daniel/ProductPage";
 import FarmerEditInventory from './components/Farmers/FarmerEditInventory';
-
+import FarmerHomePage from './components/Farmers/FarmerHomePage';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -24,8 +24,9 @@ function App() {
           <Route path="/ulogin" exact component={Ulogin} />
           <Route path="/fregister" exact component={Fregister} />
           <Route path="/flogin" exact component={Flogin} />
-          <Route path="/farmerprofile" component={FarmerProfile} />
+          <Route path="/fprofile" component={FarmerProfile} />
           <Route path='/farmer' component={FarmerEditInventory} />
+          <PrivateRoute path='/fhome' component={FarmerHomePage} />
         </Switch>
       </BrowserRouter>
     </div>
