@@ -9,6 +9,7 @@ import NavBar from "./daniel/NavBar";
 import PrivateRoute from "./utils/PrivateRoute";
 import FarmerProfile from "./components/Farmers/FarmerProfile";
 import { FarmPage } from "./daniel/FarmPage";
+import { ProductPage } from "./daniel/ProductPage";
 
 
 
@@ -24,7 +25,6 @@ function App() {
           <Route path="/farmerprofile" component={FarmerProfile} />
         </Switch>
       </BrowserRouter>
-      <FarmPage/>
     </div>
   );
 }
