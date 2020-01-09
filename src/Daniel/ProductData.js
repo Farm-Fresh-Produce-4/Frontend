@@ -1,8 +1,33 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import ProductCards from "./ProductCards";
 import { Row, Container, Col } from "reactstrap";
+import axios from "axios";
 
 const ProductData = () => {
+
+  {/*
+  const [produce,setProduce] =useState([])
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://freshproduce-backend.herokuapp.com/api/farmers/produce/:farmId`
+      )
+
+      .then(response => {
+        console.log(response);
+       
+        const prodData= response.data.results
+        setProduce(prodData);
+
+      })
+      .catch(error => {
+        console.log("the data was not returned", error);
+      });
+  }, []);
+
+  */ }
+
   const data = [
     {
       title: "apples",
