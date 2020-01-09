@@ -10,6 +10,7 @@ import FarmerProfile from './components/Farmers/FarmerProfile';
 import PrivateRoute from "./utils/PrivateRoute";
 import FarmerEditInventory from './components/Farmers/FarmerEditInventory';
 
+
 function App() {
   return (
     <div className="App">
