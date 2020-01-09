@@ -1,14 +1,17 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Ulogin from './Daniel/Ulogin';
-import Uregister from './Daniel/Uregister';
-import Fregister from './kai/Fregister';
-import Flogin from './kai/Flogin';
-import NavBar from './Daniel/NavBar';
-import FarmerProfile from './components/Farmers/FarmerProfile';
+import React from "react";
+import "./App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Ulogin from "./daniel/Ulogin";
+import Uregister from "./daniel/Uregister";
+import Fregister from "./kai/Fregister";
+import Flogin from "./kai/Flogin";
+import NavBar from "./daniel/NavBar";
 import PrivateRoute from "./utils/PrivateRoute";
+import FarmerProfile from "./components/Farmers/FarmerProfile";
+import { FarmPage } from "./daniel/FarmPage";
+import { ProductPage } from "./daniel/ProductPage";
 import FarmerEditInventory from './components/Farmers/FarmerEditInventory';
+
 
 
 function App() {

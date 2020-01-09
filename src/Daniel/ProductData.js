@@ -2,7 +2,7 @@ import React from "react";
 import ProductCards from "./ProductCards";
 import { Row, Container, Col } from "reactstrap";
 
-export const ProductData = () => {
+const ProductData = () => {
   const data = [
     {
       title: "apples",
@@ -19,11 +19,10 @@ export const ProductData = () => {
       image: "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/tangerine.png"
     },
     {
-        title: "apples",
-        price: "3.99",
-        quantity: "5",
-        image:
-          "https://is2-ssl.mzstatic.com/image/thumb/Purple118/v4/e8/06/22/e8062274-b353-e3ec-314d-a90c2a2da191/source/256x256bb.jpg"
+      title: "Strawberries",
+      price: "4.99",
+      quantity: "2",
+      image: "http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/256/32354-strawberry-icon.png"
       },
       {
         title: "apples",
@@ -33,11 +32,23 @@ export const ProductData = () => {
           "https://is2-ssl.mzstatic.com/image/thumb/Purple118/v4/e8/06/22/e8062274-b353-e3ec-314d-a90c2a2da191/source/256x256bb.jpg"
       },
       {
-        title: "Orange",
+        title: "Oranges",
       price: "2.99",
       quantity: "4",
       image: "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/tangerine.png"
       },
+      {
+        title: "Strawberries",
+      price: "4.99",
+      quantity: "2",
+      image: "http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/256/32354-strawberry-icon.png"
+      },
+      {
+        title: "Oranges",
+      price: "2.99",
+      quantity: "4",
+      image: "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/tangerine.png"
+      }
     
   ];
 
@@ -65,3 +76,5 @@ export const ProductData = () => {
   )
   
 };
+
+export  default ProductData
