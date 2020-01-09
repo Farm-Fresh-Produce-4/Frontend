@@ -1,38 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { deleteFood, fetchFood, updateFood } from '../../actions';
+import { deleteFood, fetchFood, updateFood, addFood } from '../../actions';
 
 const FarmerEditInventory = props => {
   const [items, setItems] = useState({
+    id: Date.now(),
     name: '',
     quantity: '',
     price: ''
   });
 
-  // useEffect(() => {
-  //   fetchFood();
-  // }, []);
+  const id = props.match.params.id;
+
+  useEffect(() => {
+    fetchFood();
+  }, [id]);
 
   const handleChange = e => {
     e.preventDefault();
     setItems({ ...items, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSub = (e, id) => {
     e.preventDefault();
-    props.updateFood();
+    addFood(id);
     props.history.push('/produce');
   };
 
-  const deleteItem = e => {
+  const handleSubmit = (e, id) => {
     e.preventDefault();
-    props.deleteFood();
+    props.updateFood(id);
+    props.history.push('/produce');
+  };
+
+  const deleteItem = (e, id) => {
+    e.preventDefault();
+    props.deleteFood(id);
     props.history.push('/produce');
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <h1>Produce Inventory</h1>
+      <form onSubmit={handleSub}>
         <input
           label='name'
           name='name'
@@ -54,9 +64,11 @@ const FarmerEditInventory = props => {
           value={items.price}
           onChange={handleChange}
         />
-        <button onClick={e => handleSubmit(e, updateFood())}>
-          Add/Edit Item
-        </button>
+        <br />
+        <button type='submit'>Add Item</button>
+        <br />
+        <button onClick={e => handleSubmit(e, id)}>Edit Item</button>
+        <br />
         <button onClick={deleteItem}>Delete Item</button>
       </form>
     </div>
@@ -64,6 +76,7 @@ const FarmerEditInventory = props => {
 };
 
 const mapStateToProps = state => ({
+  isAdding: state.isAdding,
   isDeleting: state.isDeleting,
   isUpdating: state.isUpdating,
   isFetching: state.isFetching,
