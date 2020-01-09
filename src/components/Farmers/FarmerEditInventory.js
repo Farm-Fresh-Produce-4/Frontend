@@ -21,21 +21,21 @@ const FarmerEditInventory = props => {
     setItems({ ...items, [e.target.name]: e.target.value });
   };
 
-  const handleSub = e => {
+  const handleSub = (e, id) => {
     e.preventDefault();
-    addFood();
+    addFood(id);
     props.history.push('/produce');
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e, id) => {
     e.preventDefault();
-    props.updateFood();
+    props.updateFood(id);
     props.history.push('/produce');
   };
 
-  const deleteItem = e => {
+  const deleteItem = (e, id) => {
     e.preventDefault();
-    props.deleteFood();
+    props.deleteFood(id);
     props.history.push('/produce');
   };
 
@@ -76,6 +76,7 @@ const FarmerEditInventory = props => {
 };
 
 const mapStateToProps = state => ({
+  isAdding: state.isAdding,
   isDeleting: state.isDeleting,
   isUpdating: state.isUpdating,
   isFetching: state.isFetching,
