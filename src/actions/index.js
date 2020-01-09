@@ -74,15 +74,15 @@ export const fetchFood = () => dispatch => {
   dispatch({ type: FETCH_FOOD_START });
 
   AxiosWithAuth()
-    .get('/produce/:farmID')
+    .get('/farmers/produce/:farmID')
     .then(res => dispatch({ type: FETCH_FOOD_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: FETCH_FOOD_FAILURE, payload: err }));
 };
 
 //POST
-export const addFood = newFood => dispatch => {
+export const addFood = (newFood, id) => dispatch => {
   dispatch({ type: ADD_FOOD_START });
-  AxiosWithAuth('/placeholder', newFood)
+  AxiosWithAuth(`/farmers/produce/${id}`, newFood)
     .post(res => dispatch({ type: ADD_FOOD_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: ADD_FOOD_FAILURE, payload: err }));
 };
@@ -90,7 +90,7 @@ export const addFood = newFood => dispatch => {
 //PUT
 export const updateFood = (updatedFood, id) => dispatch => {
   dispatch({ type: UPDATE_FOOD_START });
-  AxiosWithAuth(`/placeholder/${id}`, updatedFood)
+  AxiosWithAuth(`/farmers/produce/${id}`, updatedFood)
     .post(res => dispatch({ type: UPDATE_FOOD_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: UPDATE_FOOD_FAILURE, payload: err }));
 };
@@ -98,7 +98,7 @@ export const updateFood = (updatedFood, id) => dispatch => {
 //DELETE
 export const deleteFood = id => dispatch => {
   dispatch({ type: DELETE_FOOD_START });
-  AxiosWithAuth(`/placeholder/${id}`)
+  AxiosWithAuth(`farmers/produce/${id}`)
     .post(res => dispatch({ type: DELETE_FOOD_SUCCESS, payload: res.id }))
     .catch(err => dispatch({ type: DELETE_FOOD_FAILURE, payload: err }));
 };
