@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addFarm } from '../../actions';
 import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
+import { Form, FormGroup, Label } from 'reactstrap';
 
 const FarmerProfile = props => {
   const [newFarm, setnewFarm] = useState({
@@ -25,50 +27,68 @@ const FarmerProfile = props => {
   return (
     <div>
       <h1>Add Your Farm Information</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <br />
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label for='name'>Name: </Label>
+          <br />
           <input
-            label='name'
             name='name'
+            id='name'
             type='text'
             value={newFarm.name}
             placeholder='Farm Name'
             onChange={handleChange}
           />
-          <b />
+        </FormGroup>
+        <FormGroup>
+          <Label for='address'>Address: </Label>
+          <br />
           <input
-            label='address'
             name='address'
+            id='address'
             type='text'
             value={newFarm.address}
             placeholder='Enter Farm Address'
             onChange={handleChange}
           />
-          <b />
+        </FormGroup>
+        <FormGroup>
+          <Label for='year_founded'>Year Founded: </Label>
+          <br />
           <input
             label='year founded'
             name='year_founded'
+            id='year_founded'
             type='text'
             value={newFarm.year_founded}
             placeholder='Enter Year Founded'
             onChange={handleChange}
           />
-          <b />
+        </FormGroup>
+        <FormGroup>
+          <Label for='bio'>Short Bio: </Label>
+          <br />
           <input
-            label='bio'
             name='bio'
-            type='text'
+            id='bio'
+            type='textarea'
+            value={newFarm.bio}
             placeholder='Short Bio Here'
             onChange={handleChange}
           />
-        </div>
-        <button type='submit'>Add Farm</button>
-      </form>
+        </FormGroup>
+        <Button color='primary' type='submit'>
+          Add Farm
+        </Button>
+      </Form>
+      <br />
+      <br />
 
-      <h2>Already Have A Farm Listed</h2>
-      <h3>Click Here To Add/Edit Inventory</h3>
+      <h4>Already Have A Farm Listed</h4>
+      <h5>Click Here To Add/Edit Inventory</h5>
       <Link to='/farmer'>
-        <button>Edit Inventory</button>
+        <Button color='secondary'>Edit Inventory</Button>
       </Link>
     </div>
   );

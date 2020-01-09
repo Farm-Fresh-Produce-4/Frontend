@@ -9,9 +9,9 @@ const FarmerEditInventory = props => {
     price: ''
   });
 
-  // useEffect(() => {
-  //   fetchFood();
-  // }, []);
+  useEffect(() => {
+    fetchFood();
+  }, []);
 
   const handleChange = e => {
     e.preventDefault();
@@ -32,6 +32,7 @@ const FarmerEditInventory = props => {
 
   return (
     <div>
+      <h1>Produce Inventory</h1>
       <form onSubmit={handleSubmit}>
         <input
           label='name'

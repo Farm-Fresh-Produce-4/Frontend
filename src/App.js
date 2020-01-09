@@ -8,6 +8,7 @@ import Flogin from './kai/Flogin';
 import FarmerProfile from './components/Farmers/FarmerProfile';
 import PrivateRoute from './utils/PrivateRoute';
 import FarmerEditInventory from './components/Farmers/FarmerEditInventory';
+import FarmerHomePage from './components/Farmers/FarmerHomePage';
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
           <Route path='/ulogin' exact component={Ulogin} />
           <Route path='/fregister' exact component={Fregister} />
           <Route path='/flogin' exact component={Flogin} />
-          <Route path='/farmer' component={FarmerProfile} />
-          <Route path='/farmer' component={FarmerEditInventory} />
+          <PrivateRoute path='/fhome' component={FarmerProfile} />
+          <PrivateRoute path='/farmer' component={FarmerEditInventory} />
+          <PrivateRoute path='/fhome' component={FarmerHomePage} />
         </Switch>
       </BrowserRouter>
     </div>
