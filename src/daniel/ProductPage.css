@@ -1,0 +1,77 @@
+body{
+    position: relative;
+width: 100%;
+height: 100%;
+background: #F1F3F6;
+}
+
+.Header{
+
+width: 100%;
+height: 20%;
+left: 1px;
+margin-bottom: 40px;
+
+}
+
+h1{
+position: absolute;
+left: 2%;
+right: 0%;
+top: 13%;
+bottom: 0%;
+
+/* Header2/ 48.8px/ web */
+
+font-family: Fira Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 48px;
+line-height: 58px;
+/* identical to box height */
+
+display: flex;
+
+letter-spacing: 0.02em;
+
+/* Grey 3 */
+
+color: #DDE2E5;
+}
+
+.headertext{
+    position: absolute;
+width: 684px;
+height: 56px;
+left: 20px;
+top: 220px;
+
+/* Header6/ 20px/ web */
+
+font-family: Fira Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 25px;
+line-height: 141%;
+/* or 28px */
+
+display: flex;
+align-items: center;
+
+/* Background grey */
+
+color: #F8F9FA;
+}
+
+.drklayer{
+    position: absolute;
+width: 100%;
+height: 344px;
+left: 1px;
+
+
+/* Dark Shade 1 */
+
+background: #212429;
+opacity: 0.4;
+}
