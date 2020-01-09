@@ -7,6 +7,7 @@ import { Form, FormGroup, Label } from 'reactstrap';
 
 const FarmerProfile = props => {
   const [newFarm, setnewFarm] = useState({
+    id: Date.now(),
     name: '',
     address: '',
     year_founded: '',

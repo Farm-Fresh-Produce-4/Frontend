@@ -19,7 +19,7 @@ function App() {
           <Route path='/ulogin' exact component={Ulogin} />
           <Route path='/fregister' exact component={Fregister} />
           <Route path='/flogin' exact component={Flogin} />
-          <PrivateRoute path='/fhome' component={FarmerProfile} />
+          <PrivateRoute path='/fprofile' component={FarmerProfile} />
           <PrivateRoute path='/farmer' component={FarmerEditInventory} />
           <PrivateRoute path='/fhome' component={FarmerHomePage} />
         </Switch>
