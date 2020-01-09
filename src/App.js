@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
 import Ulogin from "./Daniel/Ulogin";
 import Uregister from "./Daniel/Uregister";
 import Fregister from "./kai/Fregister";
@@ -9,12 +10,12 @@ import NavBar from "./Daniel/NavBar";
 import PrivateRoute from "./utils/PrivateRoute";
 import FarmerProfile from "./components/Farmers/FarmerProfile";
 
-
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Switch>
+          <Route path="/home" exact component={Home} />
           <Route path="/uregister" exact component={Uregister} />
           <Route path="/ulogin" exact component={Ulogin} />
           <Route path="/fregister" exact component={Fregister} />
@@ -22,7 +23,6 @@ function App() {
           <Route path="/farmerprofile" component={FarmerProfile} />
         </Switch>
       </BrowserRouter>
-
     </div>
   );
 }

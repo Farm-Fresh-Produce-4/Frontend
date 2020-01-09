@@ -1,0 +1,33 @@
+body,
+html {
+  height: 100%;
+}
+.bg {
+  background-image: url("https://images.unsplash.com/photo-1468253926858-331ac6e1e97f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 1;
+}
+
+.split {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.links {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+p {
+  font-size: 40px;
+}
