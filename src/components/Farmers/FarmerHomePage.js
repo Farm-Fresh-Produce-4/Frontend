@@ -1,6 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import "../../css/home.css";
 
 const Holder = styled.div`
   display: flex;
@@ -8,6 +9,7 @@ const Holder = styled.div`
 `;
 
 const Welcome = styled.h1`
+  justify-content: center;
   font-size: 4rem;
   padding-top: 3%;
   padding-bottom: 1%;
@@ -16,6 +18,8 @@ const Welcome = styled.h1`
   text-shadow: 4px 4px 1px black;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
+  top: 10px;
+  height: 5vh;
 `;
 
 const Container = styled.div`
@@ -50,16 +54,16 @@ const Button = styled.button`
 
 const FarmerHomePage = () => {
   return (
-    <div>
-      {/* <Welcome>Please Choose An Option</Welcome> */}
+    <div className="bg">
+      <Welcome>Please Choose An Option</Welcome>
       <Holder>
         <Container>
-          <Link to='/fprofile'>
+          <Link to="/fprofile">
             <Button>Create Farm</Button>
           </Link>
         </Container>
         <Container>
-          <Link to='/fedit'>
+          <Link to="/fedit">
             <Button>Add/Edit Inventory</Button>
           </Link>
         </Container>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link,} from "react-router-dom";
+import { Link, BrowserRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { uRegisterRequest } from "../actions";
+import { fRegisterRequest } from "../../actions";
 
-const Uregister = props => {
+const Fregister = props => {
   const [newUser, setNewUser] = useState({
     username: "",
     password: ""
@@ -16,8 +16,8 @@ const Uregister = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.uRegisterRequest(newUser);
-    props.history.push("/ulogin");
+    props.fRegisterRequest(newUser);
+    props.history.push("/flogin");
     reset();
   };
 
@@ -32,7 +32,7 @@ const Uregister = props => {
         <div className="wrap-login100">
           <form className="login100-form validate-form" onSubmit={handleSubmit}>
             <span className="login100-form-title p-b-34">
-              buy fresh produce
+              Sell your produce
             </span>
 
             <div
@@ -77,13 +77,16 @@ const Uregister = props => {
             </div>
 
             <div className="w-full text-center">
-              <Link to="/ulogin" className="txt3">
+              <Link to="/flogin" className="txt3">
                 Sign In
               </Link>
             </div>
           </form>
 
-          <img src={require("../img/produce2.jpg")} className="login100-more" />
+          <img
+            src={require("../../img/farmland.jpg")}
+            className="login100-more"
+          />
         </div>
       </div>
     </div>
@@ -94,4 +97,56 @@ const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps, { uRegisterRequest })(Uregister);
+export default connect(mapStateToProps, { fRegisterRequest })(Fregister);
+
+/* Old form /*
+/* <div>
+      <h2>Create new Farm</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Username"
+          name="username"
+          ref={register}
+          onChange={handleChanges}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Last Name"
+          name="lastName"
+          ref={register}
+          onChange={handleChange}
+        />
+        <br /> 
+         <input
+          type="tel"
+          placeholder="Phone number"
+          name="Phone"
+          ref={register({ required: true, minLength: 6, maxLength: 12 })}
+        />
+        {errors.Phone && <p>Must enter valid phone number!</p>}
+        <br />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          ref={register({ required: true })}
+          onChange={handleChanges}
+        />
+        {errors.password && <p> Must have password!</p>}
+        <br />
+        <p>I have read the Terms and Conditions.</p>
+        <input
+          type="checkbox"
+          placeholder="Terms"
+          name="check"
+          ref={register({ required: true })}
+        />
+        {errors.Terms && <p> Must accept terms and Conditions!</p>}
+        <br />
+        <input type="submit" value="Create Account" />
+      </form>
+      <p>Have an account?</p>
+      <Link to="/flogin">Sign In </Link>
+    </div> */

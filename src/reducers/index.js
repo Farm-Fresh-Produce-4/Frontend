@@ -29,7 +29,7 @@ import {
   ADD_FARMS_START,
   ADD_FARMS_SUCCESS,
   ADD_FARMS_FAILURE
-} from '../actions/';
+} from "../actions/";
 
 const initialState = {
   token: null,
@@ -43,7 +43,7 @@ const initialState = {
   isUpdating: false,
   isFetching: false,
   token: null,
-  error: ''
+  error: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -55,18 +55,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        error: ''
+        error: ""
       };
     case FLOGIN_SUCCESS:
     case ULOGIN_SUCCESS:
     case FREGISTER_SUCCESS:
     case UREGISTER_SUCCESS:
-      localStorage.setItem('token', action.payload.token);
+      localStorage.setItem("token", action.payload.token);
       return {
         ...state,
         token: action.payload,
         isFetching: false,
-        error: ''
+        error: ""
       };
     case FLOGIN_FAILURE:
     case ULOGIN_FAILURE:
@@ -86,7 +86,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        error: ''
+        error: ""
       };
     case FETCH_FOOD_SUCCESS:
     case ADD_FOOD_SUCCESS:
@@ -97,7 +97,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         farms: action.payload,
-        error: ''
+        error: ""
       };
     case FETCH_FOOD_FAILURE:
     case ADD_FOOD_FAILURE:
@@ -114,14 +114,14 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        error: ''
+        error: ""
       };
     case ADD_FARMS_SUCCESS:
       return {
         ...state,
         isFetching: false,
         farms: action.payload,
-        error: ''
+        error: ""
       };
     case ADD_FARMS_FAILURE:
       return {

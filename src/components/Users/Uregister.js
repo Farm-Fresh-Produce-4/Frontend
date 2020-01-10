@@ -2,27 +2,28 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { uLoginRequest } from "../actions";
+import { uRegisterRequest } from "../../actions";
 
-const Ulogin = props => {
-  const [user, setUser] = useState({
+const Uregister = props => {
+  const [newUser, setNewUser] = useState({
     username: "",
     password: ""
   });
 
   const { register, errors, reset } = useForm();
-  console.log(errors);
+
+  console.log("checking for new user", newUser);
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.uLoginRequest(user);
-    props.history.push("/uhome");
+    props.uRegisterRequest(newUser);
+    props.history.push("/ulogin");
+    reset();
   };
 
   const handleChanges = event => {
     event.preventDefault();
-    setUser({ ...user, [event.target.name]: event.target.value });
-    reset();
+    setNewUser({ ...newUser, [event.target.name]: event.target.value });
   };
 
   return (
@@ -30,7 +31,9 @@ const Ulogin = props => {
       <div className="container-login100">
         <div className="wrap-login100">
           <form className="login100-form validate-form" onSubmit={handleSubmit}>
-            <span className="login100-form-title p-b-34">Customer Login</span>
+            <span className="login100-form-title p-b-34">
+              buy fresh produce
+            </span>
 
             <div
               className="wrap-input100 rs1-wrap-input100 validate-input m-b-20"
@@ -41,8 +44,7 @@ const Ulogin = props => {
                 placeholder="Username"
                 name="username"
                 className="input100"
-                ref={register({ required: true })}
-                value={user.username}
+                ref={register}
                 onChange={handleChanges}
               />
               <span className="focus-input100"></span>
@@ -57,7 +59,6 @@ const Ulogin = props => {
                 name="password"
                 className="input100"
                 ref={register({ required: true })}
-                value={user.password}
                 onChange={handleChanges}
               />
               <span className="focus-input100"></span>
@@ -65,7 +66,7 @@ const Ulogin = props => {
 
             <div className="container-login100-form-btn">
               <button className="login100-form-btn" type="submit">
-                Sign in
+                Sign up
               </button>
             </div>
 
@@ -76,13 +77,16 @@ const Ulogin = props => {
             </div>
 
             <div className="w-full text-center">
-              <Link to="/uregister" className="txt3">
-                Sign Up
+              <Link to="/ulogin" className="txt3">
+                Sign In
               </Link>
             </div>
           </form>
 
-          <img src={require("../img/produce.jpg")} className="login100-more" />
+          <img
+            src={require("../../img/produce2.jpg")}
+            className="login100-more"
+          />
         </div>
       </div>
     </div>
@@ -93,4 +97,4 @@ const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps, { uLoginRequest })(Ulogin);
+export default connect(mapStateToProps, { uRegisterRequest })(Uregister);
