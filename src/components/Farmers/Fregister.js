@@ -83,7 +83,10 @@ const Fregister = props => {
             </div>
           </form>
 
-          <img src={require("../img/farmland.jpg")} className="login100-more" />
+          <img
+            src={require("../../img/farmland.jpg")}
+            className="login100-more"
+          />
         </div>
       </div>
     </div>

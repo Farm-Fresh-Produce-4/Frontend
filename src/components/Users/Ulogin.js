@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { uLoginRequest } from "../actions";
+import { uLoginRequest } from "../../actions";
 
 const Ulogin = props => {
   const [user, setUser] = useState({
@@ -16,7 +16,7 @@ const Ulogin = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.uLoginRequest(user);
-    props.history.push("/uhome");
+    props.history.push("/farms");
   };
 
   const handleChanges = event => {
@@ -82,7 +82,10 @@ const Ulogin = props => {
             </div>
           </form>
 
-          <img src={require("../img/produce.jpg")} className="login100-more" />
+          <img
+            src={require("../../img/produce.jpg")}
+            className="login100-more"
+          />
         </div>
       </div>
     </div>

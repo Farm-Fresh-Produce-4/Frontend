@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link,} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { uRegisterRequest } from "../actions";
+import { uRegisterRequest } from "../../actions";
 
 const Uregister = props => {
   const [newUser, setNewUser] = useState({
@@ -83,7 +83,10 @@ const Uregister = props => {
             </div>
           </form>
 
-          <img src={require("../img/produce2.jpg")} className="login100-more" />
+          <img
+            src={require("../../img/produce2.jpg")}
+            className="login100-more"
+          />
         </div>
       </div>
     </div>

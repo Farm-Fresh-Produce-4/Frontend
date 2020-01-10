@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fLoginRequest } from "../../actions";
-import "../css/main.css";
-import "../css/util.css";
+import "../../css/main.css";
+import "../../css/util.css";
 
 const Flogin = props => {
   const [user, setUser] = useState({
@@ -85,7 +85,7 @@ const Flogin = props => {
           </form>
 
           <img
-            src={require("../img/farmland2.jpg")}
+            src={require("../../img/farmland2.jpg")}
             className="login100-more"
           />
         </div>
