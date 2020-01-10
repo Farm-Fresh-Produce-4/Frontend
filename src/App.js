@@ -7,6 +7,7 @@ import Uregister from './Daniel/Uregister';
 import Fregister from './kai/Fregister';
 import Flogin from './kai/Flogin';
 import NavBar from './Daniel/NavBar';
+import FNavbar from './Daniel/FNavBar';
 import PrivateRoute from './utils/PrivateRoute';
 import FarmerProfile from './components/Farmers/FarmerProfile';
 import { FarmPage } from './Daniel/FarmPage';
@@ -20,13 +21,13 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/uregister' exact component={Uregister} />
-          <Route path='/ulogin' exact component={Ulogin} />
-          <Route path='/fregister' exact component={Fregister} />
-          <Route path='/flogin' exact component={Flogin} />
-          <Route path='/fprofile' component={FarmerProfile} />
-          <Route path='/farmer' component={FarmerEditInventory} />
+          <PrivateRoute path='/uregister' exact component={Uregister} />
+          <PrivateRoute path='/ulogin' exact component={Ulogin} />
+          <PrivateRoute path='/fregister' exact component={Fregister} />
+          <PrivateRoute path='/flogin' exact component={Flogin} />
           <PrivateRoute path='/fhome' component={FarmerHomePage} />
+          <PrivateRoute path='/fprofile' component={FarmerProfile} />
+          <PrivateRoute path='/fedit' component={FarmerEditInventory} />
         </Switch>
       </BrowserRouter>
     </div>

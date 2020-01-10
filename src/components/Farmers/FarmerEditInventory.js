@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { deleteFood, fetchFood, updateFood, addFood } from '../../actions';
+import {
+  deleteFood,
+  fetchFood,
+  updateFood,
+  addFood,
+  fetchFarms
+} from '../../actions';
+import { Button } from 'reactstrap';
+import { Form, FormGroup, Label } from 'reactstrap';
 
 const FarmerEditInventory = props => {
   const [items, setItems] = useState({
@@ -10,67 +18,75 @@ const FarmerEditInventory = props => {
     price: ''
   });
 
-  const id = props.match.params.id;
-
   useEffect(() => {
     fetchFood();
-  }, [id]);
+    console.log(fetchFarms());
+  }, []);
 
   const handleChange = e => {
     e.preventDefault();
     setItems({ ...items, [e.target.name]: e.target.value });
   };
 
-  const handleSub = (e, id) => {
+  const handleSub = e => {
     e.preventDefault();
-    addFood(id);
+    addFood();
     props.history.push('/produce');
   };
 
-  const handleSubmit = (e, id) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    props.updateFood(id);
+    props.updateFood();
     props.history.push('/produce');
   };
 
-  const deleteItem = (e, id) => {
+  const deleteItem = e => {
     e.preventDefault();
-    props.deleteFood(id);
+    props.deleteFood();
     props.history.push('/produce');
   };
 
   return (
     <div>
-      <h1>Produce Inventory</h1>
-      <form onSubmit={handleSub}>
-        <input
-          label='name'
-          name='name'
-          placeholder='Produce Name'
-          value={items.name}
-          onChange={handleChange}
-        />
-        <input
-          label='quantity'
-          name='quantity'
-          placeholder='Quantity'
-          value={items.quantity}
-          onChange={handleChange}
-        />
-        <input
-          label='price'
-          name='price'
-          placeholder='Price'
-          value={items.price}
-          onChange={handleChange}
-        />
+      <Form onSubmit={handleSub}>
+        {/* <h1>Produce Inventory</h1> */}
+        <FormGroup>
+          <Label for='name'>Name: </Label>
+          <br />
+          <input
+            name='name'
+            placeholder='Produce Name'
+            value={items.name}
+            onChange={handleChange}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for='quantity'>Quantity: </Label>
+          <br />
+          <input
+            name='quantity'
+            placeholder='Quantity'
+            value={items.quantity}
+            onChange={handleChange}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for='Price'>Price: </Label>
+          <br />
+          <input
+            name='price'
+            placeholder='Price'
+            value={items.price}
+            onChange={handleChange}
+          />
+        </FormGroup>
         <br />
-        <button type='submit'>Add Item</button>
-        <br />
-        <button onClick={e => handleSubmit(e, id)}>Edit Item</button>
-        <br />
-        <button onClick={deleteItem}>Delete Item</button>
-      </form>
+        <Button type='submit'>Add Item</Button>
+        <br /> <br />
+        <Button onClick={e => handleSubmit(e)}>Edit Item</Button>
+        <br /> <br />
+        <Button onClick={deleteItem}>Delete Item</Button>
+      </Form>
     </div>
   );
 };
@@ -80,7 +96,8 @@ const mapStateToProps = state => ({
   isDeleting: state.isDeleting,
   isUpdating: state.isUpdating,
   isFetching: state.isFetching,
-  error: state.error
+  error: state.error,
+  produce: state.produce
 });
 
 export default connect(mapStateToProps, { deleteFood, fetchFood, updateFood })(
