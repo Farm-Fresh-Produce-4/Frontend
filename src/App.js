@@ -14,6 +14,7 @@ import { FarmPage } from './Daniel/FarmPage';
 import { ProductPage } from './Daniel/ProductPage';
 import FarmerEditInventory from './components/Farmers/FarmerEditInventory';
 import FarmerHomePage from './components/Farmers/FarmerHomePage';
+import { Footer } from "./daniel/Footer";
 
 function App() {
   return (
