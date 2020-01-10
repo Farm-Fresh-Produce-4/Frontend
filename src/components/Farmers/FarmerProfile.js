@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { addFarm } from '../../actions';
+import { addFarm, fetchFarms } from '../../actions';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import { Form, FormGroup, Label } from 'reactstrap';
 
 const FarmerProfile = props => {
-  const [newFarm, setnewFarm] = useState({
+  const [newFarm, setNewFarm] = useState({
     id: Date.now(),
     name: '',
     address: '',
     year_founded: '',
     bio: ''
   });
+
+  useEffect(() => {
+    fetchFarms();
+    console.log(fetchFarms());
+  }, []);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -22,13 +27,13 @@ const FarmerProfile = props => {
 
   const handleChange = e => {
     e.preventDefault();
-    setnewFarm({ ...newFarm, [e.target.name]: e.target.value });
+    setNewFarm({ ...newFarm, [e.target.name]: e.target.value });
   };
 
   return (
     <div>
-      <h1>Add Your Farm Information</h1>
-      <br />
+      {/* <h1>Add Your Farm Information</h1> */}
+
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label for='name'>Name: </Label>
@@ -88,7 +93,7 @@ const FarmerProfile = props => {
 
       <h4>Already Have A Farm Listed</h4>
       <h5>Click Here To Add/Edit Inventory</h5>
-      <Link to='/farmer'>
+      <Link to='/fedit'>
         <Button color='secondary'>Edit Inventory</Button>
       </Link>
     </div>
@@ -98,7 +103,8 @@ const FarmerProfile = props => {
 const mapStateToProps = state => ({
   isFetching: state.isFetching,
   farms: state.farms,
-  error: state.error
+  error: state.error,
+  produce: state.produce
 });
 
 export default connect(mapStateToProps, { addFarm })(FarmerProfile);

@@ -74,32 +74,35 @@ export const fetchFood = () => dispatch => {
   dispatch({ type: FETCH_FOOD_START });
 
   AxiosWithAuth()
-    .get('/produce/:farmID')
+    .get('/farmers/produce/:farmID')
     .then(res => dispatch({ type: FETCH_FOOD_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: FETCH_FOOD_FAILURE, payload: err }));
 };
 
 //POST
-export const addFood = newFood => dispatch => {
+export const addFood = (newFood, id) => dispatch => {
   dispatch({ type: ADD_FOOD_START });
-  AxiosWithAuth('/placeholder', newFood)
-    .post(res => dispatch({ type: ADD_FOOD_SUCCESS, payload: res.data }))
+  AxiosWithAuth()
+    .post(`/farmers/produce/${id}`, newFood)
+    .then(res => dispatch({ type: ADD_FOOD_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: ADD_FOOD_FAILURE, payload: err }));
 };
 
 //PUT
 export const updateFood = (updatedFood, id) => dispatch => {
   dispatch({ type: UPDATE_FOOD_START });
-  AxiosWithAuth(`/placeholder/${id}`, updatedFood)
-    .post(res => dispatch({ type: UPDATE_FOOD_SUCCESS, payload: res.data }))
+  AxiosWithAuth()
+    .put(`/farmers/produce/${id}`, updatedFood)
+    .then(res => dispatch({ type: UPDATE_FOOD_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: UPDATE_FOOD_FAILURE, payload: err }));
 };
 
 //DELETE
 export const deleteFood = id => dispatch => {
   dispatch({ type: DELETE_FOOD_START });
-  AxiosWithAuth(`/placeholder/${id}`)
-    .post(res => dispatch({ type: DELETE_FOOD_SUCCESS, payload: res.id }))
+  AxiosWithAuth()
+    .delete(`farmers/produce/${id}`)
+    .then(res => dispatch({ type: DELETE_FOOD_SUCCESS, payload: res.id }))
     .catch(err => dispatch({ type: DELETE_FOOD_FAILURE, payload: err }));
 };
 
@@ -110,8 +113,9 @@ export const ADD_FARMS_FAILURE = 'ADD_FARM_FAILURE';
 
 export const addFarm = newFarm => dispatch => {
   dispatch({ type: ADD_FARMS_START });
-  AxiosWithAuth('/placeholder', newFarm)
-    .post(res => dispatch({ type: ADD_FARMS_SUCCESS, payload: res.data }))
+  AxiosWithAuth()
+    .post('/placeholder', newFarm)
+    .then(res => dispatch({ type: ADD_FARMS_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: ADD_FARMS_FAILURE, payload: err }));
 };
 
