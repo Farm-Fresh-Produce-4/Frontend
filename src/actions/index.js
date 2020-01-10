@@ -74,11 +74,7 @@ export const fetchFood = id => dispatch => {
   dispatch({ type: FETCH_FOOD_START });
 
   AxiosWithAuth()
-<<<<<<< HEAD
-    .get('/farmers/produce/:farmID')
-=======
     .get(`/farmers/produce/${id}`)
->>>>>>> kai-haskell
     .then(res => dispatch({ type: FETCH_FOOD_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: FETCH_FOOD_FAILURE, payload: err }));
 };
@@ -86,42 +82,27 @@ export const fetchFood = id => dispatch => {
 //POST
 export const addFood = (newFood, id) => dispatch => {
   dispatch({ type: ADD_FOOD_START });
-<<<<<<< HEAD
   AxiosWithAuth()
     .post(`/farmers/produce/${id}`, newFood)
     .then(res => dispatch({ type: ADD_FOOD_SUCCESS, payload: res.data }))
-=======
-  AxiosWithAuth(`/farmers/produce/${id}`, newFood)
-    .post(res => dispatch({ type: ADD_FOOD_SUCCESS, payload: res.data }))
->>>>>>> kai-haskell
     .catch(err => dispatch({ type: ADD_FOOD_FAILURE, payload: err }));
 };
 
 //PUT
 export const updateFood = (updatedFood, id) => dispatch => {
   dispatch({ type: UPDATE_FOOD_START });
-<<<<<<< HEAD
   AxiosWithAuth()
     .put(`/farmers/produce/${id}`, updatedFood)
     .then(res => dispatch({ type: UPDATE_FOOD_SUCCESS, payload: res.data }))
-=======
-  AxiosWithAuth(`/farmers/produce/${id}`, updatedFood)
-    .post(res => dispatch({ type: UPDATE_FOOD_SUCCESS, payload: res.data }))
->>>>>>> kai-haskell
     .catch(err => dispatch({ type: UPDATE_FOOD_FAILURE, payload: err }));
 };
 
 //DELETE
 export const deleteFood = id => dispatch => {
   dispatch({ type: DELETE_FOOD_START });
-<<<<<<< HEAD
   AxiosWithAuth()
     .delete(`farmers/produce/${id}`)
     .then(res => dispatch({ type: DELETE_FOOD_SUCCESS, payload: res.id }))
-=======
-  AxiosWithAuth(`/farmers/produce/${id}`)
-    .post(res => dispatch({ type: DELETE_FOOD_SUCCESS, payload: res.id }))
->>>>>>> kai-haskell
     .catch(err => dispatch({ type: DELETE_FOOD_FAILURE, payload: err }));
 };
 
@@ -132,14 +113,9 @@ export const ADD_FARMS_FAILURE = "ADD_FARM_FAILURE";
 
 export const addFarm = newFarm => dispatch => {
   dispatch({ type: ADD_FARMS_START });
-<<<<<<< HEAD
   AxiosWithAuth()
-    .post('/placeholder', newFarm)
+    .post("/placeholder", newFarm)
     .then(res => dispatch({ type: ADD_FARMS_SUCCESS, payload: res.data }))
-=======
-  AxiosWithAuth("/placeholder", newFarm)
-    .post(res => dispatch({ type: ADD_FARMS_SUCCESS, payload: res.data }))
->>>>>>> kai-haskell
     .catch(err => dispatch({ type: ADD_FARMS_FAILURE, payload: err }));
 };
 
