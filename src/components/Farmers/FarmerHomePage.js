@@ -51,7 +51,7 @@ const Button = styled.button`
 const FarmerHomePage = () => {
   return (
     <div>
-      <Welcome>Please Choose An Option</Welcome>
+      {/* <Welcome>Please Choose An Option</Welcome> */}
       <Holder>
         <Container>
           <Link to='/fprofile'>
@@ -59,7 +59,7 @@ const FarmerHomePage = () => {
           </Link>
         </Container>
         <Container>
-          <Link to='/farmer'>
+          <Link to='/fedit'>
             <Button>Add/Edit Inventory</Button>
           </Link>
         </Container>

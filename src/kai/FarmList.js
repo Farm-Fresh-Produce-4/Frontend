@@ -1,5 +1,5 @@
 import React from 'react'
-import { FarmListCards } from '../daniel/FarmListCards'
+import { FarmListCards } from '../Daniel/FarmListCards'
 import { Container, Row } from 'reactstrap'
 
 
