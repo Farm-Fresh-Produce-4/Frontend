@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, BrowserRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { fRegisterRequest } from "../actions";
+import { fRegisterRequest } from "../../actions";
 
 const Fregister = props => {
   const [newUser, setNewUser] = useState({

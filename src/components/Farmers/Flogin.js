@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { fLoginRequest } from "../actions";
+import { fLoginRequest } from "../../actions";
 import "../css/main.css";
 import "../css/util.css";
 

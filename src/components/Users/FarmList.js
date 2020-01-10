@@ -1,5 +1,5 @@
 import React from "react";
-import { FarmListCards } from "../components/Farmers/FarmListCards";
+import { FarmListCards } from "./FarmListCards";
 import { Container, Row } from "reactstrap";
 
 export const FarmList = () => {
